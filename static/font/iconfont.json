@@ -1,0 +1,72 @@
+{
+  "id": "2987218",
+  "name": "用户管理",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "458996",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "569100",
+      "name": "用户",
+      "font_class": "yonhu",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "1506296",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "1921124",
+      "name": "系统日志",
+      "font_class": "xitongrizhi",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "6176575",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "10352321",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "11239063",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "12820381",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "15562259",
+      "name": "专题管理",
+      "font_class": "zhuantiguanli",
+      "unicode": "e786",
+      "unicode_decimal": 59270
+    }
+  ]
+}

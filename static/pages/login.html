@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-image: url(./images/bg.jpeg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            min-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .login-box .title {
+            text-align: center;
+            line-height: 60px;
+            color: white;
+            background-color: lightskyblue;
+        }
+
+        .login-box .form {
+            margin: 30px;
+        }
+
+        .login-box .form .line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .login-box .form .line input {
+            width: 100%;
+            box-sizing: border-box;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            outline: none;
+        }
+
+        .login-box .form .line a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        .login-box .form .line.btn-box {
+            display: flex;
+            justify-content: center;
+        }
+
+        .login-box .form .line.btn-box button {
+            border: none;
+            background-color: lightgreen;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <div class="title">欢迎登陆后台管理系统</div>
+        <div class="form">
+            <div class="line">
+                <input type="text" placeholder="输入用户名">
+            </div>
+
+            <div class="line">
+                <input type="text" placeholder="输入手机号">
+            </div>
+
+            <div class="line">
+                <input type="password" placeholder="输入密码">
+            </div>
+
+            <div class="line btn-box">
+                <button>登陆</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="../js//jquery.js"></script>
+<script>
+    $("button").on("click",()=>{
+        $.ajax({
+            type:"get",
+            url: "/api/user/login",
+            processData: true,
+            data: {
+                name: $("input").eq(0).val(),
+                phone: $("input").eq(1).val(),
+                pass: $("input").eq(2).val()
+            },
+            
+            dataType: "json",
+            success: (res) => {
+                console.log(res);
+                if (res.code == 200) {
+                    //保存token字符串到本地
+                    localStorage.setItem('token', res.token);
+                    location.href = '../index.html';
+                } else {
+                    alert(res.msg);
+                }
+            }
+        })
+    })
+</script>

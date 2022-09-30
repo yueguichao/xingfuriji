@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+header {
+    height: 80px;
+    background-image: linear-gradient(135deg, #C2FFD8 10%, #465EFB 100%);
+    width: 100%;
+    text-align: center;
+    line-height: 80px;
+}
+
+header span {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+main {
+    height: calc(100% - 80px);
+    display: flex;
+    background-image: linear-gradient(135deg, #CE9FFC 10%, #7367F0 100%);
+
+}
+
+main .left {
+    width: 60%;;
+    margin: 16px 40px;
+
+
+}
+
+.left .tabtitle {
+    height: 60px;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    background: #5DB85B;
+}
+
+.table {
+    margin-top: 12px;
+}
+
+.table .table-head {
+    display: flex;
+    height: 50px;
+    background-color: chocolate;
+}
+
+.table .table-head li {
+    line-height: 50px;
+    width: calc(20%);
+    font-size: 18px;
+    text-align: center;
+    font-weight: 1000;
+}
+
+.table .table-body ul {
+    height: 50px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+}
+
+.table .table-body ul li {
+    line-height: 50px;
+    width: calc(20%);
+    font-size: 18px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+}
+
+.table .table-body .row:hover {
+    background-color: #f5f5f5;
+}
+
+.table .table-body ul li .del {
+    cursor: pointer;
+}
+
+
+
+
+
+main .right {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.right .content {
+    margin: 16px 40px;
+    background-image: linear-gradient(135deg, #FFF6B7 10%, #F6416C 100%);
+}
+
+.right .content .title {
+    height: 60px;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #5DB85B;
+}
+
+.right .content .line {
+    width: 400px;
+    margin: 24px;
+}
+
+.right .content .line input {
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.right .content .line .add {
+    background-color: #F6416C;
+    font-size: 24px;
+    cursor: pointer;
+}

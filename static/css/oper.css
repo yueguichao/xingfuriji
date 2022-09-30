@@ -1,0 +1,60 @@
+
+main{
+    padding-top: 60px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+main aside{
+    width: 200px;
+    background-color: #2980B9;
+}
+main aside .block{
+    padding: 20px 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+main aside .block span{
+    margin-right: 10px;
+}
+main aside .block.active{
+    background-color: #1F618D ;
+    color: white;
+}
+
+
+
+
+
+/* 遮罩 */
+.mask{
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: fixed;
+    display: none;
+}
+.mask .content{
+    padding: 30px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+}
+.mask .content .line{
+    margin-bottom: 20px;
+}
+.mask .content .line input{
+    height: 40px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding-left: 20px;
+}
+.mask .content .line:last-child{
+    display: flex;
+    justify-content: center;
+}

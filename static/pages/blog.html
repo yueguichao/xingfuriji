@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博文管理系统</title>
+    <link rel="stylesheet" href="../css/same.css">
+    <link rel="stylesheet" href="../font//iconfont.css">
+</head>
+
+<body>
+    <header>
+        <span>博文管理系统</span>
+    </header>
+    <main>
+        <div class="left">
+            <div class="tabtitle">
+                <span>博文列表</span>
+            </div>
+            <div class="table">
+                <ul class="table-head">
+                    <li>ID</li>
+                    <li>博文类型</li>
+                    <li>博文标题</li>
+                    <li>博文内容</li>
+                    <li>操作</li>
+                </ul>
+
+                <div class="table-body">
+                    <!-- <ul class="row">
+                        <li>1001</li>
+                        <li>性能优化</li>
+                        <li>说一说</li>
+                        <li>雪碧图</li>
+                        <li>
+                            <span class="iconfont icon-shanchu del"></span>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="content">
+                <div class="title">添加博文</div>
+                <div class="line">
+                    <input type="text" placeholder="输入博文类型">
+                </div>
+                <div class="line">
+                    <input type="text" placeholder="输入博文标题">
+                </div>
+                <div class="line">
+                    <input type="text" placeholder="输入博文内容">
+                </div>
+                <div class="line">
+                    <input class="add" type="button" value="添加博文">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+<script src="../js/jquery.js"></script>
+<script>
+
+    $(".table-body").on("click", ".del", (e) => {
+        console.log(e.target.id);
+    })
+
+    $(".right .add").on("click", () => {
+        if ($("input").eq(0).val() && $("input").eq(1).val() && $("input").eq(2).val()) {
+            $.ajax({
+                type: "post",
+                url: "/api/blog/add",
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                processData: true,
+                data: {
+                    blogType: $("input").eq(0).val(),
+                    blogTitle: $("input").eq(1).val(),
+                    blogContent: $("input").eq(2).val(),
+                },
+                dataType: "json",
+                success: (res) => {
+                    alert("添加成功")
+                }
+            })
+        }else{
+            alert("信息不完整")
+        }
+    })
+
+    $(window).on("load", () => {
+        $.ajax({
+            type: "get",
+            url: "/api/blog/list",
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+            processData: true,
+            data: {},
+            dataType: "json",
+            success: (res) => {
+                let list = res.list.map((item, index) => {
+                    return (
+                        `<ul class="row" >
+                        <li>${item._id}</li>
+                        <li>${item.blogTitle}</li>
+                        <li>${item.blogType}</li>
+                        <li>${item.blogContent}</li>
+                        <li class="iconfont icon-shanchu del" id="${item._id}"></li>
+                    </ul>`
+                    )
+                })
+                $(".table-body").html(list)
+            }
+        })
+    })
+
+
+</script>
